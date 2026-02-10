@@ -25,10 +25,15 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
     if (theme === "editorial") {
-      document.body.removeAttribute("data-theme");
+      html.removeAttribute("data-theme");
+      body.removeAttribute("data-theme");
     } else {
-      document.body.setAttribute("data-theme", theme);
+      html.setAttribute("data-theme", theme);
+      body.setAttribute("data-theme", theme);
     }
 
     window.localStorage.setItem("site-theme", theme);

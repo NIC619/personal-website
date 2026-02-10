@@ -41,10 +41,15 @@ function initThemeSwitcher() {
 }
 
 function applyTheme(theme, buttons) {
+  const html = document.documentElement;
+  const body = document.body;
+
   if (theme === "editorial") {
-    document.body.removeAttribute("data-theme");
+    html.removeAttribute("data-theme");
+    body.removeAttribute("data-theme");
   } else {
-    document.body.setAttribute("data-theme", theme);
+    html.setAttribute("data-theme", theme);
+    body.setAttribute("data-theme", theme);
   }
 
   buttons.forEach((button) => {

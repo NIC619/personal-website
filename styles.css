@@ -1,6 +1,11 @@
 :root {
   --heading-font: "Source Serif 4", serif;
   --body-font: "Source Sans 3", sans-serif;
+  --body-size: 16px;
+  --body-line-height: 1.68;
+  --title-scale: 1;
+  --h2-scale: 1;
+  --h3-scale: 1;
   --bg: #f8f7f2;
   --surface: #fffdfa;
   --surface-soft: #f5f2ea;
@@ -17,9 +22,15 @@
   --transition-ui: 190ms ease-out;
 }
 
+html[data-theme="editorial-soft"],
 body[data-theme="editorial-soft"] {
   --heading-font: "Source Serif 4", serif;
   --body-font: "Source Sans 3", sans-serif;
+  --body-size: 16.5px;
+  --body-line-height: 1.72;
+  --title-scale: 0.98;
+  --h2-scale: 0.98;
+  --h3-scale: 0.98;
   --bg: #f9f7f2;
   --surface: #fffefb;
   --surface-soft: #f5f2ea;
@@ -34,9 +45,15 @@ body[data-theme="editorial-soft"] {
   --shadow-hover: 0 15px 30px rgba(22, 20, 16, 0.09);
 }
 
+html[data-theme="bookish"],
 body[data-theme="bookish"] {
   --heading-font: "Newsreader", serif;
   --body-font: "Source Sans 3", sans-serif;
+  --body-size: 17px;
+  --body-line-height: 1.76;
+  --title-scale: 1.04;
+  --h2-scale: 1.03;
+  --h3-scale: 1.02;
   --bg: #f8f5ef;
   --surface: #fffdf9;
   --surface-soft: #f2ede4;
@@ -51,9 +68,15 @@ body[data-theme="bookish"] {
   --shadow-hover: 0 16px 36px rgba(31, 26, 19, 0.11);
 }
 
+html[data-theme="humanist"],
 body[data-theme="humanist"] {
   --heading-font: "Literata", serif;
   --body-font: "IBM Plex Sans", sans-serif;
+  --body-size: 16px;
+  --body-line-height: 1.66;
+  --title-scale: 0.99;
+  --h2-scale: 0.99;
+  --h3-scale: 0.99;
   --bg: #f8f6f0;
   --surface: #fffefa;
   --surface-soft: #f3eee5;
@@ -68,9 +91,15 @@ body[data-theme="humanist"] {
   --shadow-hover: 0 16px 36px rgba(25, 23, 19, 0.11);
 }
 
+html[data-theme="paper"],
 body[data-theme="paper"] {
   --heading-font: "Literata", serif;
   --body-font: "IBM Plex Sans", sans-serif;
+  --body-size: 16.5px;
+  --body-line-height: 1.72;
+  --title-scale: 1.01;
+  --h2-scale: 1.01;
+  --h3-scale: 1.01;
   --bg: #f6f3ee;
   --surface: #fffefb;
   --surface-soft: #f1ece4;
@@ -85,9 +114,15 @@ body[data-theme="paper"] {
   --shadow-hover: 0 16px 36px rgba(30, 29, 21, 0.12);
 }
 
+html[data-theme="technical"],
 body[data-theme="technical"] {
   --heading-font: "Newsreader", serif;
   --body-font: "Source Sans 3", sans-serif;
+  --body-size: 15.5px;
+  --body-line-height: 1.62;
+  --title-scale: 0.95;
+  --h2-scale: 0.96;
+  --h3-scale: 0.97;
   --bg: #f4f7fa;
   --surface: #fcfdff;
   --surface-soft: #edf2f8;
@@ -119,7 +154,8 @@ body {
     linear-gradient(180deg, var(--surface-soft) 0%, var(--bg) 24%);
   color: var(--text);
   font-family: var(--body-font);
-  line-height: 1.68;
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
   word-spacing: 0.04em;
 }
 
@@ -205,6 +241,8 @@ a:hover {
 }
 
 .theme-switcher {
+  position: relative;
+  z-index: 10;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
@@ -275,7 +313,11 @@ a:hover {
 
 .hero-copy h1 {
   font-family: var(--heading-font);
-  font-size: clamp(1.52rem, 3.05vw, 1.95rem);
+  font-size: clamp(
+    calc(1.52rem * var(--title-scale)),
+    calc(3.05vw * var(--title-scale)),
+    calc(1.95rem * var(--title-scale))
+  );
   line-height: 1.15;
   margin: 0;
 }
@@ -335,12 +377,17 @@ a:hover {
 .section-title {
   margin: 0;
   font-family: var(--heading-font);
-  font-size: 1.28rem;
+  font-size: calc(1.52rem * var(--h2-scale));
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
 }
 
 .section-description {
   margin: 0.52rem 0 1.12rem;
   color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.52;
 }
 
 .item-list {
@@ -360,7 +407,7 @@ a:hover {
 
 .item h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: calc(1.18rem * var(--h3-scale));
   font-family: var(--heading-font);
   font-weight: 600;
 }
@@ -378,6 +425,8 @@ a:hover {
 .item ul {
   margin: 0.45rem 0 0;
   padding-left: 1.2rem;
+  font-size: 0.96rem;
+  line-height: 1.58;
 }
 
 .item li + li {
