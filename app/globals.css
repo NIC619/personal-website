@@ -340,6 +340,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.44rem;
   padding: 0.56rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -348,6 +349,30 @@ a:hover {
   font-weight: 600;
   background: #fff;
   transition: all var(--transition-ui);
+}
+
+.button-link-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.button-link-label {
+  line-height: 1;
+}
+
+.button-link.icon-only {
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.button-link.text-only {
+  padding-inline: 1.05rem;
 }
 
 .button-link:hover {

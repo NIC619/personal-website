@@ -39,6 +39,14 @@ Edit your website content in:
 
 Any item can contain nested `children` recursively.
 
+For `profile.actions`, you can optionally set a custom icon:
+
+```js
+{ label: "GitHub", url: "https://github.com/NIC619", icon: "/icons/github.svg" }
+```
+
+If `icon` is omitted, the site auto-loads the favicon from the link domain. `mailto:` uses `/icons/email.svg`.
+
 ## Theme presets
 
 Top bar theme switcher includes:

@@ -12,16 +12,16 @@ export const siteData = {
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/hsiu-ping-lin-50267ba3/",
       },
-      { label: "X/Twitter", url: "https://x.com/NICLin619" },
-      {
-        label: "Curriculum Vitae",
-        url: "https://www.dropbox.com/scl/fi/n4fa3skuz7hyibe2pokyf/CV_Nic_Lin.pdf?rlkey=vhtz5b5kuef3lt9sdlvb65bh2&st=yrwka78z&raw=1",
-      },
+      // { label: "X/Twitter", url: "https://x.com/NICLin619" },
       { label: "GitHub", url: "https://github.com/NIC619" },
       { label: "Medium", url: "https://medium.com/@twedusuck" },
       {
         label: "ETHTaipeixTEM Newsletter",
         url: "https://ethtaipeixtem.substack.com/",
+      },
+      {
+        label: "Curriculum Vitae",
+        url: "https://www.dropbox.com/scl/fi/n4fa3skuz7hyibe2pokyf/CV_Nic_Lin.pdf?rlkey=vhtz5b5kuef3lt9sdlvb65bh2&st=yrwka78z&raw=1",
       },
     ],
   },

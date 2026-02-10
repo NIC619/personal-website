@@ -99,17 +99,32 @@ export default function Page() {
             </p>
             <p>{siteData.profile.tagline}</p>
             <div className="hero-actions">
-              {siteData.profile.actions.map((action) => (
-                <a
-                  className="button-link"
-                  key={`${action.label}-${action.url}`}
-                  href={action.url}
-                  target={action.url.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={action.url.startsWith("mailto:") ? undefined : "noreferrer"}
-                >
-                  {action.label}
-                </a>
-              ))}
+              {siteData.profile.actions.map((action) => {
+                const cvOnly = isCvAction(action);
+                return (
+                  <a
+                    className={`button-link ${cvOnly ? "text-only" : "icon-only"}`}
+                    key={`${action.label}-${action.url}`}
+                    href={action.url}
+                    target={action.url.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={action.url.startsWith("mailto:") ? undefined : "noreferrer"}
+                    aria-label={cvOnly ? undefined : action.label}
+                    title={cvOnly ? undefined : action.label}
+                  >
+                    {!cvOnly ? (
+                      <img
+                        className="button-link-icon"
+                        src={getActionIconSrc(action)}
+                        alt={getActionIconAlt(action)}
+                        loading="lazy"
+                      />
+                    ) : null}
+                    {cvOnly ? (
+                      <span className="button-link-label">Curriculum Vitae</span>
+                    ) : null}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -172,4 +187,25 @@ function ItemList({ items, nested = false }) {
       ))}
     </div>
   );
+}
+
+function getActionIconSrc(action) {
+  if (action.icon) return action.icon;
+  if (action.url.startsWith("mailto:")) return "/icons/email.svg";
+
+  try {
+    const hostname = new URL(action.url).hostname;
+    if (hostname.includes("substack.com")) return "/icons/substack.svg";
+    return `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(hostname)}`;
+  } catch {
+    return "/icons/email.svg";
+  }
+}
+
+function getActionIconAlt(action) {
+  return `${action.label} icon`;
+}
+
+function isCvAction(action) {
+  return action.label.toLowerCase() === "curriculum vitae";
 }

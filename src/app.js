@@ -73,10 +73,20 @@ function renderNav(container, sections) {
 
 function renderHero(container, profile) {
   const actions = profile.actions
-    .map(
-      (action) =>
-        `<a class="button-link" href="${escapeAttr(action.url)}" target="_blank" rel="noreferrer">${escapeHtml(action.label)}</a>`
-    )
+    .map((action) => {
+      const cvOnly = isCvAction(action);
+      const attrs = action.url.startsWith("mailto:")
+        ? ""
+        : 'target="_blank" rel="noreferrer"';
+      const icon = cvOnly
+        ? ""
+        : `<img class="button-link-icon" src="${escapeAttr(getActionIconSrc(action))}" alt="${escapeAttr(getActionIconAlt(action))}" loading="lazy" />`;
+      const label = cvOnly
+        ? `<span class="button-link-label">Curriculum Vitae</span>`
+        : "";
+
+      return `<a class="button-link ${cvOnly ? "text-only" : "icon-only"}" href="${escapeAttr(action.url)}" ${attrs} ${cvOnly ? "" : `aria-label="${escapeAttr(action.label)}" title="${escapeAttr(action.label)}"`}>${icon}${label}</a>`;
+    })
     .join("");
 
   container.innerHTML = `
@@ -190,4 +200,25 @@ function escapeHtml(value) {
 
 function escapeAttr(value) {
   return escapeHtml(value);
+}
+
+function getActionIconSrc(action) {
+  if (action.icon) return action.icon;
+  if (action.url.startsWith("mailto:")) return "/icons/email.svg";
+
+  try {
+    const hostname = new URL(action.url).hostname;
+    if (hostname.includes("substack.com")) return "/icons/substack.svg";
+    return `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(hostname)}`;
+  } catch {
+    return "/icons/email.svg";
+  }
+}
+
+function getActionIconAlt(action) {
+  return `${action.label} icon`;
+}
+
+function isCvAction(action) {
+  return action.label.toLowerCase() === "curriculum vitae";
 }
