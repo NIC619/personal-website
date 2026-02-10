@@ -16,6 +16,24 @@ Then open:
 
 Stop the server with `Ctrl + C`.
 
+## Theme presets
+
+The top bar includes 6 switchable visual presets:
+
+- `Editorial`: balanced serif/sans, now smaller type with roomier spacing
+- `Editorial Soft`: softer contrast and gentler paper depth
+- `Bookish Modern`: literary serif voice with modern body text
+- `Humanist Editorial`: humanist sans + elegant serif, balanced readability
+- `Paper`: warmer publishing look with softer depth
+- `Technical`: cooler tooling/research tone with tighter contrast
+
+Theme choice is saved in `localStorage` (`site-theme` key).
+Default for first-time visitors is `Bookish Modern`.
+
+To fine-tune any preset, edit token variables in:
+
+- `/styles.css`
+
 ## Files
 
 - `index.html`: page shell and mount points
