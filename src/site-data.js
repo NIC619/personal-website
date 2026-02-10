@@ -1,20 +1,28 @@
-window.siteData = {
+export const siteData = {
   profile: {
     name: "Nic Lin",
     title: "Protocol Researcher | Smart Contract Engineer",
     tagline:
       "👋 Hi, I’m Nic Lin — a protocol researcher and smart contract engineer focused on L2s, MEV, and secure protocol design. I’ve worked on core infrastructure in the Ethereum ecosystem, including account abstraction, rollups, and MEV-aware DEXs. I publish research-backed insights, contribute to open-source tooling, and speak at global Ethereum conferences. Currently exploring new frontiers in universal account, L1/L2 interoperability and censorship resistance.",
-    imageUrl:
-      "../pfp.png",
+    imageUrl: "/pfp.png",
     imageAlt: "Profile picture of Nic Lin",
     actions: [
       { label: "Email", url: "mailto:23.nic.lin@gmail.com" },
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/hsiu-ping-lin-50267ba3/" },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/hsiu-ping-lin-50267ba3/",
+      },
       { label: "X/Twitter", url: "https://x.com/NICLin619" },
-      { label: "Curriculum Vitae", url: "https://www.dropbox.com/scl/fi/n4fa3skuz7hyibe2pokyf/CV_Nic_Lin.pdf?rlkey=vhtz5b5kuef3lt9sdlvb65bh2&st=yrwka78z&raw=1" },
+      {
+        label: "Curriculum Vitae",
+        url: "https://www.dropbox.com/scl/fi/n4fa3skuz7hyibe2pokyf/CV_Nic_Lin.pdf?rlkey=vhtz5b5kuef3lt9sdlvb65bh2&st=yrwka78z&raw=1",
+      },
       { label: "GitHub", url: "https://github.com/NIC619" },
       { label: "Medium", url: "https://medium.com/@twedusuck" },
-      { label: "ETHTaipeixTEM Newsletter", url: "https://ethtaipeixtem.substack.com/" },
+      {
+        label: "ETHTaipeixTEM Newsletter",
+        url: "https://ethtaipeixtem.substack.com/",
+      },
     ],
   },
   sections: [
@@ -85,8 +93,14 @@ window.siteData = {
           summary:
             "Breaks down the economics and mechanics of EIP-4844, from blob fee markets to how rollups inherit cheaper data availability.",
           links: [
-            { label: "Part 1", url: "https://medium.com/taipei-ethereum-meetup/rollup-and-the-boost-from-proto-danksharding-85d2fe0566b6" },
-            { label: "Part 2", url: "https://medium.com/taipei-ethereum-meetup/rollup-proto-danksharding-implementation-detail-913a3c61fde8" },
+            {
+              label: "Part 1",
+              url: "https://medium.com/taipei-ethereum-meetup/rollup-and-the-boost-from-proto-danksharding-85d2fe0566b6",
+            },
+            {
+              label: "Part 2",
+              url: "https://medium.com/taipei-ethereum-meetup/rollup-proto-danksharding-implementation-detail-913a3c61fde8",
+            },
           ],
         },
         {
@@ -95,9 +109,18 @@ window.siteData = {
           summary:
             "Explores how data availability sampling secures rollups, covering protocol intuition, math, and practical implementation details.",
           links: [
-            { label: "Part 1", url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-one-why-das-dc17f83355b5" },
-            { label: "Part 2", url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-two-das-in-danksharding-071767bd133e" },
-            { label: "Part 3", url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-three-celestia-eigen-da-and-avail-da-1a11d29b3a1b" },
+            {
+              label: "Part 1",
+              url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-one-why-das-dc17f83355b5",
+            },
+            {
+              label: "Part 2",
+              url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-two-das-in-danksharding-071767bd133e",
+            },
+            {
+              label: "Part 3",
+              url: "https://medium.com/taipei-ethereum-meetup/data-availability-sampling-part-three-celestia-eigen-da-and-avail-da-1a11d29b3a1b",
+            },
           ],
         },
         {
@@ -106,13 +129,34 @@ window.siteData = {
           summary:
             "Multi-part deep dive into MEV, explaining extraction vectors and patterns for MEV-aware protocol and product design.",
           links: [
-            { label: "1", url: "https://medium.com/taipei-ethereum-meetup/after-the-merge-mev-309e836698cf" },
-            { label: "2", url: "https://medium.com/taipei-ethereum-meetup/mev-proposer-builder-separation-968d519a4898" },
-            { label: "3", url: "https://medium.com/taipei-ethereum-meetup/mev-pbs-patches-6a66852a7265" },
-            { label: "4", url: "https://medium.com/taipei-ethereum-meetup/take-back-mev-5e867757b216" },
-            { label: "5", url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part1-5dc4c38db5a7" },
-            { label: "6", url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part2-1d6863098c5f" },
-            { label: "7", url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part3-intent-and-suave-f170ee0b22d9" },
+            {
+              label: "1",
+              url: "https://medium.com/taipei-ethereum-meetup/after-the-merge-mev-309e836698cf",
+            },
+            {
+              label: "2",
+              url: "https://medium.com/taipei-ethereum-meetup/mev-proposer-builder-separation-968d519a4898",
+            },
+            {
+              label: "3",
+              url: "https://medium.com/taipei-ethereum-meetup/mev-pbs-patches-6a66852a7265",
+            },
+            {
+              label: "4",
+              url: "https://medium.com/taipei-ethereum-meetup/take-back-mev-5e867757b216",
+            },
+            {
+              label: "5",
+              url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part1-5dc4c38db5a7",
+            },
+            {
+              label: "6",
+              url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part2-1d6863098c5f",
+            },
+            {
+              label: "7",
+              url: "https://medium.com/taipei-ethereum-meetup/design-for-fairer-mev-ecosystem-part3-intent-and-suave-f170ee0b22d9",
+            },
           ],
         },
       ],
@@ -223,18 +267,5 @@ window.siteData = {
         },
       ],
     },
-    // {
-    //   id: "education",
-    //   title: "Education",
-    //   items: [
-    //     {
-    //       title: "University of California, San Diego",
-    //       meta: "B.S. in Data Science • Expected 2027",
-    //       bullets: [
-    //         "Focus: cryptography, distributed systems, and optimization.",
-    //       ],
-    //     },
-    //   ],
-    // },
   ],
 };

@@ -1,87 +1,70 @@
-# Personal Website Frontend (Custom)
+# Personal Website (Next.js)
 
-This is a static custom frontend for your site, designed to stay close to the current content structure at [niclin.me](https://niclin.me) while making updates easy.
+This project is now migrated to **Next.js (App Router)** so you can deploy cleanly to GitHub + Vercel.
 
-## Start a dev build (local)
+## Stack
 
-This project is static HTML/CSS/JS, so you can run it with a local server:
+- Next.js 16
+- React 19
+- CSS variables + global stylesheet
+- Data-driven content model with nested items
+
+## Requirements
+
+- Node.js `20.9.0` or newer
+
+## Run locally
 
 ```bash
-python3 -m http.server 3000
+npm install
+npm run dev
 ```
 
-Then open:
+Open:
 
 - `http://localhost:3000`
 
-Stop the server with `Ctrl + C`.
+Build and run production locally:
+
+```bash
+npm run build
+npm run start
+```
+
+## Content editing
+
+Edit your website content in:
+
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/src/site-data.js`
+
+Any item can contain nested `children` recursively.
 
 ## Theme presets
 
-The top bar includes 6 switchable visual presets:
+Top bar theme switcher includes:
 
-- `Editorial`: balanced serif/sans, now smaller type with roomier spacing
-- `Editorial Soft`: softer contrast and gentler paper depth
-- `Bookish Modern`: literary serif voice with modern body text
-- `Humanist Editorial`: humanist sans + elegant serif, balanced readability
-- `Paper`: warmer publishing look with softer depth
-- `Technical`: cooler tooling/research tone with tighter contrast
+- `Editorial`
+- `Editorial Soft`
+- `Bookish Modern` (default for first-time visitors)
+- `Humanist Editorial`
+- `Paper`
+- `Technical`
 
-Theme choice is saved in `localStorage` (`site-theme` key).
-Default for first-time visitors is `Bookish Modern`.
+Theme choice is stored in `localStorage` as `site-theme`.
 
-To fine-tune any preset, edit token variables in:
+## Project structure
 
-- `/styles.css`
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/layout.js`: app layout + metadata
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/page.js`: page UI + recursive rendering
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/globals.css`: design tokens + all styles
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/src/site-data.js`: editable profile/sections data
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/public/pfp.png`: profile image asset
 
-## Files
+## Deploy to GitHub + Vercel
 
-- `index.html`: page shell and mount points
-- `styles.css`: visual design
-- `src/site-data.js`: all editable content (sections/items/nested items)
-- `src/app.js`: renderer that turns data into UI
+1. Push this repo to GitHub.
+2. In Vercel, click **Add New Project** and import the GitHub repo.
+3. Framework preset should auto-detect as **Next.js**.
+4. Click **Deploy**.
 
-## Edit content
-
-Update `src/site-data.js`.
-
-### Add a new section
-
-```js
-{
-  id: "speaking",
-  title: "Talks",
-  description: "Selected talks and panels.",
-  items: []
-}
-```
-
-### Add an item
-
-```js
-{
-  title: "Conference Talk",
-  meta: "DevCon • 2026",
-  summary: "Talk summary",
-  bullets: ["Point one", "Point two"],
-  links: [{ label: "Slides", url: "https://example.com/slides" }]
-}
-```
-
-### Add nested items
-
-```js
-{
-  title: "Featured Writings",
-  children: [
-    {
-      title: "L2 Research",
-      children: [
-        { title: "Article A", links: [{ label: "Read", url: "https://..." }] }
-      ]
-    }
-  ]
-}
-```
-
-Any `item` can contain `children`, and children can contain their own `children` indefinitely.
+For future updates, push to your default branch and Vercel will auto-redeploy.
