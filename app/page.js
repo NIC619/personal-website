@@ -1,44 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { siteData } from "../src/site-data";
 
-const THEME_OPTIONS = [
-  { key: "editorial", label: "Editorial" },
-  { key: "editorial-soft", label: "Editorial Soft" },
-  { key: "bookish", label: "Bookish Modern" },
-  { key: "humanist", label: "Humanist Editorial" },
-  { key: "paper", label: "Paper" },
-  { key: "technical", label: "Technical" },
-];
-
-const DEFAULT_THEME = "bookish";
-
 export default function Page() {
-  const [theme, setTheme] = useState(DEFAULT_THEME);
-
-  useEffect(() => {
-    const savedTheme = window.localStorage.getItem("site-theme");
-    const isValid = THEME_OPTIONS.some((option) => option.key === savedTheme);
-    const activeTheme = isValid ? savedTheme : DEFAULT_THEME;
-    setTheme(activeTheme);
-  }, []);
-
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-
-    if (theme === "editorial") {
-      html.removeAttribute("data-theme");
-      body.removeAttribute("data-theme");
-    } else {
-      html.setAttribute("data-theme", theme);
-      body.setAttribute("data-theme", theme);
-    }
-
-    window.localStorage.setItem("site-theme", theme);
-  }, [theme]);
-
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
@@ -64,20 +29,6 @@ export default function Page() {
                 ))}
               </ul>
             </nav>
-            <div className="theme-switcher" role="group" aria-label="Theme switcher">
-              {THEME_OPTIONS.map((option) => (
-                <button
-                  key={option.key}
-                  className={`theme-button ${theme === option.key ? "active" : ""}`}
-                  data-theme-choice={option.key}
-                  type="button"
-                  aria-pressed={theme === option.key}
-                  onClick={() => setTheme(option.key)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </header>

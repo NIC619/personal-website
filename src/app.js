@@ -7,57 +7,11 @@
   const sectionsRoot = document.getElementById("sections-root");
   const copyright = document.getElementById("copyright-text");
 
-  initThemeSwitcher();
   renderNav(navList, data.sections);
   renderHero(heroRoot, data.profile);
   renderSections(sectionsRoot, data.sections);
   copyright.textContent = `© ${new Date().getFullYear()} ${data.profile.name}`;
 })();
-
-function initThemeSwitcher() {
-  const buttons = Array.from(document.querySelectorAll("[data-theme-choice]"));
-  const allowedThemes = new Set([
-    "editorial",
-    "editorial-soft",
-    "bookish",
-    "humanist",
-    "paper",
-    "technical",
-  ]);
-  const savedTheme = localStorage.getItem("site-theme");
-  const initialTheme = allowedThemes.has(savedTheme) ? savedTheme : "bookish";
-
-  applyTheme(initialTheme, buttons);
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const theme = button.getAttribute("data-theme-choice");
-      if (!allowedThemes.has(theme)) return;
-
-      localStorage.setItem("site-theme", theme);
-      applyTheme(theme, buttons);
-    });
-  });
-}
-
-function applyTheme(theme, buttons) {
-  const html = document.documentElement;
-  const body = document.body;
-
-  if (theme === "editorial") {
-    html.removeAttribute("data-theme");
-    body.removeAttribute("data-theme");
-  } else {
-    html.setAttribute("data-theme", theme);
-    body.setAttribute("data-theme", theme);
-  }
-
-  buttons.forEach((button) => {
-    const choice = button.getAttribute("data-theme-choice");
-    button.classList.toggle("active", choice === theme);
-    button.setAttribute("aria-pressed", String(choice === theme));
-  });
-}
 
 function renderNav(container, sections) {
   const aboutItem = document.createElement("li");
