@@ -33,7 +33,7 @@ export const siteData = {
       items: [
         {
           title: "Puffer Finance",
-          meta: "Project Lead • Jun 2025 — Present",
+          meta: "Project Tech Lead • Jun 2025 — Present",
           bullets: [
             "Led development of UniFi Based Rollup, which supports instant withdrawals via TEE proofs and achieves L1↔L2 synchronous composability through Signal Service",
             "Designed Puffer Preconf AVS, which provides crypto-economic transaction preconfirmations for L2s",
