@@ -6,6 +6,7 @@ This project is now migrated to **Next.js (App Router)** so you can deploy clean
 
 - Next.js 16
 - React 19
+- Vercel Analytics
 - CSS variables + global stylesheet
 - Data-driven content model with nested items
 
@@ -19,6 +20,8 @@ This project is now migrated to **Next.js (App Router)** so you can deploy clean
 npm install
 npm run dev
 ```
+
+After adding new dependencies like Vercel Analytics, run `npm install` again.
 
 Open:
 
@@ -47,23 +50,23 @@ For `profile.actions`, you can optionally set a custom icon:
 
 If `icon` is omitted, the site auto-loads the favicon from the link domain. `mailto:` uses `/icons/email.svg`.
 
-## Theme presets
+## Branding and social assets
 
-Top bar theme switcher includes:
-
-- `Editorial`
-- `Editorial Soft`
-- `Bookish Modern` (default for first-time visitors)
-- `Humanist Editorial`
-- `Paper`
-- `Technical`
-
-Theme choice is stored in `localStorage` as `site-theme`.
+- Favicon and app icons are defined in:
+  - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/icon.svg`
+  - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/favicon.svg`
+  - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/apple-icon.js`
+- Open Graph image is generated in:
+  - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/opengraph-image.js`
+- SEO/social metadata is configured in:
+  - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/layout.js`
 
 ## Project structure
 
 - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/layout.js`: app layout + metadata
 - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/page.js`: page UI + recursive rendering
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/opengraph-image.js`: social preview image
+- `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/apple-icon.js`: Apple touch icon
 - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/app/globals.css`: design tokens + all styles
 - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/src/site-data.js`: editable profile/sections data
 - `/Users/nic619/Library/CloudStorage/Dropbox/Mac (2)/Documents/Projects/personal-website/public/pfp.png`: profile image asset
