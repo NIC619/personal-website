@@ -54,7 +54,8 @@ export const siteData = {
           meta: "Senior Protocol Engineer, imToken Labs • Nov. 2020 — Jun. 2025",
           bullets: [
             "Designed and shipped Account Abstraction (AA) smart contracts for imToken, introducing modular architecture, custom recovery mechanisms and novel validation centric design",
-            "Led integration of Order Flow Auctions across multiple chains, increasing MEV protection for DEX users and generating new revenue streams",
+            "Designed and implemented an early version of the Fast Confirmation Rule (FCR) for imToken ahead of the Ethereum Merge (2022); see Featured Writings below.",
+            "Led the integration of order flow auctions across multiple chains, improving MEV protection for DEX users and generating new revenue streams",
             "Researched and implemented MEV prevention and mitigation strategies",
             "Conducted security evaluations of rollups like OP Stack, Arbitrum, StarkNet, and ZKsync; identified safety gaps in force inclusion mechanisms",
           ],
@@ -84,6 +85,22 @@ export const siteData = {
             {
               label: "Read article",
               url: "https://nic619.substack.com/p/validation-centric-design-a-new-paradigm?r=4r81",
+            },
+          ],
+        },
+        {
+          title: "Fast Confirmation Rule (FCR) for imToken",
+          meta: "Confirmation • Security",
+          summary:
+            "Presents an early Fast Confirmation Rule (FCR) implementation for imToken that hardens confirmations against chain reorgs, developed ahead of the Merge (2022).",
+          links: [
+            {
+              label: "Read article",
+              url: "https://medium.com/imtoken/safe-head-part2-b245ced6c787",
+            },
+            {
+              label: "FCR from EF Research (2026)",
+              url: "https://x.com/_julianma/status/2033851796574154808",
             },
           ],
         },
