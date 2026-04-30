@@ -35,8 +35,8 @@ export const siteData = {
           title: "Puffer Finance",
           meta: "Project Tech Lead • Jun 2025 — Present",
           bullets: [
-            "Led development of UniFi Based Rollup, which supports instant withdrawals via TEE proofs and achieves L1↔L2 synchronous composability through Signal Service",
-            "Designed Puffer Preconf AVS, which provides crypto-economic transaction preconfirmations for L2s",
+            "Led the development of UniFi, a fork of OP Stack, supporting Based Sequencing and enabling L1↔L2 synchronous composability through the Signal Service and Real-Time Proving",
+            "Designed Puffer Preconf AVS, which provides cryptoeconomic transaction preconfirmations for L2s",
           ],
         },
         {
